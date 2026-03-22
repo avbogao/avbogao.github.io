@@ -172,6 +172,26 @@
       body.lang-en-active h1.lang-en, body.lang-en-active h2.lang-en, 
       body.lang-en-active h3.lang-en { display: block; }
 
+      /* Animación Foto de Perfil */
+      .img-profile {
+        transition: transform 0.3s ease;
+      }
+      .img-profile:hover {
+        transform: scale(1.1);
+      }
+
+      /* Ajustes para móvil */
+      @media (max-width: 992px) {
+        h1 {
+          font-size: 3.5rem;
+          line-height: 1.2;
+        }
+        .toggle-container {
+          top: auto;
+          bottom: 20px;
+        }
+      }
+
       @media (min-width: 992px) {
         #sideNav {
           width: 22rem; /* Aumentamos el ancho de la barra lateral (originalmente 17rem) */
@@ -196,7 +216,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Start Bootstrap</span>
+        <span class="d-block d-lg-none">Ailen Violeta Bogao</span>
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/perfil.png" alt="">
         </span>
