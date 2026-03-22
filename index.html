@@ -16,6 +16,7 @@
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
@@ -24,9 +25,174 @@
     <!-- Custom styles for this template -->
     <link href="css/resume.min.css" rel="stylesheet">
 
+    <style>
+      /* --- DISEÑO MODERNO PERSONALIZADO --- */
+      
+      /* 1. Tipografía y Colores Generales */
+      body {
+        font-family: 'Poppins', sans-serif; /* Fuente más moderna y legible */
+        color: #555;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+        text-transform: none; /* Quitamos las mayúsculas forzadas */
+        font-weight: 700;
+      }
+      .bg-primary {
+        background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%) !important; /* Gradiente moderno */
+      }
+      .text-primary {
+        color: #4e54c8 !important; /* Color de acento a juego */
+      }
+      a {
+        color: #4e54c8;
+      }
+
+      /* 2. Estilo de Tarjetas (Proyectos) */
+      .card {
+        border: none; /* Sin bordes duros */
+        border-radius: 15px; /* Bordes redondeados */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Sombra suave */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+      }
+      .card:hover {
+        transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+        box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+      }
+
+      /* 3. Bloques de Experiencia y Educación */
+      .resume-item {
+        background: #fdfdfd;
+        border-left: 5px solid #4e54c8; /* Línea de acento a la izquierda */
+        padding: 20px 25px;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        margin-bottom: 2rem !important; /* Más separación entre items */
+      }
+
+      /* 4. Animación Iconos Skills y Distribución */
+      .list-icons {
+        display: flex;
+        justify-content: center; /* Centra los iconos */
+        flex-wrap: wrap; /* Permite que bajen a la siguiente línea si no entran */
+        gap: 1.5rem; /* Espacio uniforme entre ellos */
+      }
+      .list-icons .list-inline-item {
+        margin: 0 !important; /* Quitamos margenes por defecto para usar gap */
+      }
+      .list-icons .list-inline-item i, .list-icons .list-inline-item svg {
+        display: inline-block; /* CRUCIAL: Permite que funcione la animación de escala */
+        transition: transform 0.2s ease;
+      }
+      .list-icons .list-inline-item i:hover, .list-icons .list-inline-item svg:hover {
+        transform: scale(1.3); /* Zoom un poco más evidente */
+        color: #4e54c8;
+      }
+
+      /* 5. Estilos Sección Intereses (Creativo) */
+      .interest-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: #4e54c8;
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .interest-item:hover .interest-icon {
+        transform: translateY(-10px) scale(1.1); /* Salto y zoom suave al pasar el mouse */
+        color: #8f94fb;
+      }
+
+      /* --- MODO OSCURO --- */
+      body.dark-mode {
+        background-color: #121212;
+        color: #d0d0d0;
+      }
+      body.dark-mode .bg-primary {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%) !important;
+      }
+      body.dark-mode .resume-item {
+        background: #1e1e1e;
+        color: #d0d0d0;
+        box-shadow: none;
+      }
+      body.dark-mode .card {
+        background: #1e1e1e;
+        color: #d0d0d0;
+      }
+      body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+        color: #fff;
+      }
+      body.dark-mode .subheading {
+        color: #a0a0a0;
+      }
+      body.dark-mode .text-primary, body.dark-mode a {
+        color: #8f94fb !important;
+      }
+      
+      /* --- BOTONES FLOTANTES --- */
+      .toggle-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 2000;
+        display: flex;
+        gap: 10px;
+      }
+      .toggle-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+        font-weight: bold;
+        color: #333;
+      }
+      .toggle-btn:hover {
+        transform: scale(1.1);
+      }
+      body.dark-mode .toggle-btn {
+        background: #333;
+        border-color: #555;
+        color: #fff;
+      }
+
+      /* --- IDIOMAS --- */
+      .lang-en { display: none; }
+      body.lang-en-active .lang-es { display: none; }
+      body.lang-en-active .lang-en { display: inline; }
+      /* Ajuste para bloques que no son inline */
+      body.lang-en-active div.lang-en, body.lang-en-active p.lang-en, 
+      body.lang-en-active h1.lang-en, body.lang-en-active h2.lang-en, 
+      body.lang-en-active h3.lang-en { display: block; }
+
+      @media (min-width: 992px) {
+        #sideNav {
+          width: 22rem; /* Aumentamos el ancho de la barra lateral (originalmente 17rem) */
+        }
+        body {
+          padding-left: 22rem; /* Este valor debe coincidir con el width de #sideNav */
+        }
+        .img-profile {
+          max-width: 14rem; /* Aumentamos el tamaño máximo de la foto (originalmente 10rem) */
+          max-height: 14rem;
+        }
+      }
+    </style>
   </head>
 
   <body id="page-top">
+
+    <div class="toggle-container">
+      <button class="toggle-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode"><i class="fa fa-moon-o"></i></button>
+      <button class="toggle-btn" onclick="toggleLanguage()" title="Switch Language" id="langBtn">EN</button>
+    </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -41,22 +207,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Sobre mí</a>
+            <a class="nav-link js-scroll-trigger" href="#about"><span class="lang-es">Sobre mí</span><span class="lang-en">About</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#experience">Experiencia</a>
+            <a class="nav-link js-scroll-trigger" href="#experience"><span class="lang-es">Experiencia</span><span class="lang-en">Experience</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#education">Educación</a>
+            <a class="nav-link js-scroll-trigger" href="#education"><span class="lang-es">Educación</span><span class="lang-en">Education</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+            <a class="nav-link js-scroll-trigger" href="#skills"><span class="lang-es">Habilidades</span><span class="lang-en">Skills</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#interests">Intereses</a>
+            <a class="nav-link js-scroll-trigger" href="#interests"><span class="lang-es">Intereses</span><span class="lang-en">Interests</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Proyectos</a>
+            <a class="nav-link js-scroll-trigger" href="#awards"><span class="lang-es">Proyectos</span><span class="lang-en">Projects</span></a>
           </li>
         </ul>
       </div>
@@ -70,9 +236,12 @@
             <span class="text-primary">Bogao</span>
           </h1>
           <div class="subheading mb-5">Buenos Aires, Argentina ·
-            <a href="mailto:name@email.com">ailenvioleta.bogao@gmail.com</a>
+            <a href="mailto:ailenvioleta.bogao@gmail.com">ailenvioleta.bogao@gmail.com</a>
           </div>
-          <p class="mb-5">Entusiasta de la ciencia de datos y en constante búsqueda de conocimientos. Comprometida con el aprendizaje y la aplicación de habilidades para contribuir de manera innovadora en el análisis de datos.</p>
+          <div class="mb-5">
+            <p class="lang-es">Desarrolladora Backend y Data Scientist. Apasionada por optimizar sistemas y transformar datos en soluciones estratégicas. Con experiencia en SQL, Oracle y Smalltalk, busco aportar valor mediante la eficiencia técnica y la innovación.</p>
+            <p class="lang-en">Backend Developer and Data Scientist. Passionate about optimizing systems and transforming data into strategic solutions. With experience in SQL, Oracle, and Smalltalk, I seek to add value through technical efficiency and innovation.</p>
+          </div>
           <ul class="list-inline list-social-icons mb-0">
             <!-- <li class="list-inline-item">
               <a href="#">
@@ -94,7 +263,7 @@
               <a href="files/CVBogaoAilenVioleta.pdf"target="_blank" alt="CV">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-file fa-stack-1x fa-inverse"></i>
+                  <i class="fa fa-id-card fa-stack-1x fa-inverse"></i>
                   </span>
               </a>
             </li> 
@@ -120,16 +289,23 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
         <div class="my-auto">
-          <h2 class="mb-5">Experiencia</h2>
+          <h2 class="mb-5"><span class="lang-es">Experiencia</span><span class="lang-en">Experience</span></h2>
 
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-              <h3 class="mb-0">Analista Técnica</h3>
+              <h3 class="mb-0"><span class="lang-es">Desarrolladora Backend</span><span class="lang-en">Backend Developer</span></h3>
               <div class="subheading mb-3">Infoil</div>
-              <p>Manipulación de bases de datos con SQL Server.</p>
+              <div class="lang-es">
+                <p>Desarrollo y optimizo la lógica de backend y consultas en bases de datos SQL Server y Oracle, aplicando patrones de diseño orientados a objetos (OOP) para mantener código limpio, eficiente y escalable en Smalltalk.</p>
+                <p>Participé en la implementación de Zafiro para Pluspetrol en la Cuenca Neuquina, incluyendo integración de sistemas y capacitaciones in situ.</p>
+              </div>
+              <div class="lang-en">
+                <p>I develop and optimize backend logic and queries in SQL Server and Oracle databases, applying Object-Oriented Programming (OOP) design patterns to maintain clean, efficient, and scalable code in Smalltalk.</p>
+                <p>I participated in the implementation of Zafiro for Pluspetrol in the Neuquén Basin, including system integration and on-site training.</p>
+              </div>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">Mayo 2024 - Presente</span>
+              <span class="text-primary"><span class="lang-es">Mayo 2024 - Presente</span><span class="lang-en">May 2024 - Present</span></span>
             </div>
           </div>
 
@@ -137,10 +313,15 @@
             <div class="resume-content mr-auto">
               <h3 class="mb-0">Data Scientist</h3>
               <div class="subheading mb-3">No Country</div>
-              <p>Presenté estrategias efectivas de análisis de datos utilizando Python, habilidades en el entrenamiento de modelos de machine learning con scikit-learn y destreza en la creación de paneles informativos con Power BI. Ofrecí información relevante y facilité la toma de decisiones informadas a través de enfoques basados en datos.</p>
+              <div class="lang-es">
+                <p>Desarrollo de estrategias de análisis de datos con Python y entrenamiento de modelos de Machine Learning (Scikit-learn). Diseño de dashboards interactivos en Power BI para la visualización de KPIs, facilitando la toma de decisiones estratégicas basadas en datos.</p>
+              </div>
+              <div class="lang-en">
+                <p>Development of data analysis strategies using Python and Machine Learning model training (Scikit-learn). Design of interactive Power BI dashboards for KPI visualization, facilitating strategic data-driven decision-making.</p>
+              </div>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">Febrero 2024 - Abril 2024</span>
+              <span class="text-primary"><span class="lang-es">Febrero 2024 - Abril 2024</span><span class="lang-en">February 2024 - April 2024</span></span>
             </div>
           </div>
 
@@ -172,26 +353,26 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
         <div class="my-auto">
-          <h2 class="mb-5">Educación</h2>
+          <h2 class="mb-5"><span class="lang-es">Educación</span><span class="lang-en">Education</span></h2>
 
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
               <h3 class="mb-0">Universidad de Buenos Aires</h3>
-              <div class="subheading mb-3">Licenciatura en Ciencias de Datos</div>
+              <div class="subheading mb-3"><span class="lang-es">Licenciatura en Ciencias de Datos</span><span class="lang-en">Bachelor of Data Science</span></div>
              <!--<div>Computer Science - Web Development Track</div>-->
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">Septiembre 2022 - Presente</span>
+              <span class="text-primary"><span class="lang-es">Septiembre 2022 - Presente</span><span class="lang-en">September 2022 - Present</span></span>
             </div>
           </div>
 
           <div class="resume-item d-flex flex-column flex-md-row">
             <div class="resume-content mr-auto">
               <h3 class="mb-0">Universidad de Buenos Aires</h3>
-              <div class="subheading mb-3">Licenciatura en Ciencias de la Computación</div>
+              <div class="subheading mb-3"><span class="lang-es">Licenciatura en Ciencias de la Computación</span><span class="lang-en">Bachelor of Computer Science</span></div>
             </div>
             <div class="resume-date text-md-right">
-              <span class="text-primary">Septiembre 2020 - Presente</span>
+              <span class="text-primary"><span class="lang-es">Septiembre 2020 - Presente</span><span class="lang-en">September 2020 - Present</span></span>
             </div>
           </div>
 
@@ -200,47 +381,49 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
         <div class="my-auto">
-          <h2 class="mb-5">Skills</h2>
+          <h2 class="mb-5"><span class="lang-es">Habilidades</span><span class="lang-en">Skills</span></h2>
 
-          <div class="subheading mb-3">Lenguajes de programación y Herramientas</div>
+          <div class="subheading mb-3"><span class="lang-es">Lenguajes de programación y Herramientas</span><span class="lang-en">Programming Languages & Tools</span></div>
           <ul class="list-inline list-icons">
             <li class="list-inline-item">
-              <i class="devicons devicons-python"></i>
+              <i class="devicons devicons-python" title="Python"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicon-r-plain"></i>
+              <i class="devicon-r-plain" title="R"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicon-pandas-plain-wordmark"></i>
+              <i class="devicon-pandas-plain-wordmark" title="Pandas"></i>
             </li>
             <li class="list-inline-item">     
-              <i class="devicon-numpy-plain-wordmark"></i>
+              <i class="devicon-numpy-plain-wordmark" title="NumPy"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicon-matplotlib-plain-wordmark"></i>
+              <i class="devicon-matplotlib-plain-wordmark" title="Matplotlib"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicon-scikitlearn-plain"></i>
+              <i class="devicon-scikitlearn-plain" title="scikit-learn"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicon-cplusplus-plain"></i>
+              <i class="devicon-cplusplus-plain" title="C++"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicon-azuresqldatabase-plain"></i>
+              <i class="devicon-azuresqldatabase-plain" title="Azure SQL"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicons devicons-java"></i>
+              <i class="devicons devicons-java" title="Java"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicons devicons-html5"></i>
+              <i class="devicons devicons-html5" title="HTML5"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicons devicons-css3"></i>
+              <i class="devicons devicons-css3" title="CSS3"></i>
             </li>
             <li class="list-inline-item">
-              <i class="devicons devicons-linux"></i>
+              <i class="devicons devicons-linux" title="Linux"></i>
             </li>
-
+            <li class="list-inline-item">
+              <i class="devicon-oracle-original" title="Oracle"></i>
+            </li>
           </ul>
 
           <!-- <div class="subheading mb-3">Workflow</div>
@@ -253,29 +436,95 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
         <div class="my-auto">
-          <h2 class="mb-5">Intereses</h2>
-          <p>Además de mi compromiso como data scientist, disfruto de una variedad de actividades que me mantienen equilibrada y enriquecen mi vida:</p>
-          <p class="mb-0">Me encanta explorar la ciudad, sumergirme en sus calles y descubrir nuevos lugares para disfrutar de la cultura local y la diversidad gastronómica que ofrece. Salir a recorrer la ciudad es una de mis pasiones, y siempre estoy en busca de nuevas aventuras y experiencias.
-          </p>
-          <p class="mb-0">La actividad física juega un papel importante en mi vida. Disfruto entrenando regularmente para mantenerme en forma y saludable. Ya sea en el gimnasio o al aire libre, siempre busco desafiarme y superar mis límites.
-          </p>
-          <p class="mb-0">Tocar la guitarra es otra actividad que me apasiona. La música me permite expresarme de forma creativa y encontrar un escape en momentos de relax. Dedico tiempo a practicar y aprender nuevas canciones, explorando diferentes estilos y géneros musicales.</p>
+          <h2 class="mb-5"><span class="lang-es">Intereses</span><span class="lang-en">Interests</span></h2>
+          
+          <div class="mb-5">
+            <p class="lang-es">Además de mi compromiso como desarrolladora, disfruto de una variedad de actividades que me mantienen equilibrada y enriquecen mi vida:</p>
+            <p class="lang-en">Apart from my commitment as a developer, I enjoy a variety of activities that keep me balanced and enrich my life:</p>
+          </div>
+          
+          <div class="row text-center">
+            <div class="col-md-4 mb-4 interest-item">
+              <i class="fa fa-map-o interest-icon"></i>
+              <h3 class="h5 mb-3"><span class="lang-es">Exploración Urbana</span><span class="lang-en">Urban Exploration</span></h3>
+              <div class="lang-es text-muted">
+                <p>Me encanta explorar la ciudad, sumergirme en sus calles y descubrir nuevos lugares para disfrutar de la cultura local y la diversidad gastronómica. Salir a recorrer es una de mis pasiones.</p>
+              </div>
+              <div class="lang-en text-muted">
+                <p>I love exploring the city, immersing myself in its streets, and discovering new places to enjoy local culture and diverse gastronomy. Touring the city is one of my passions.</p>
+              </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 interest-item">
+              <i class="fa fa-heartbeat interest-icon"></i>
+              <h3 class="h5 mb-3"><span class="lang-es">Actividad Física</span><span class="lang-en">Physical Activity</span></h3>
+              <div class="lang-es text-muted">
+                <p>Disfruto entrenando regularmente para mantenerme saludable. Ya sea en el gimnasio o al aire libre, siempre busco desafiarme y superar mis propios límites.</p>
+              </div>
+              <div class="lang-en text-muted">
+                <p>I enjoy training regularly to stay healthy. Whether in the gym or outdoors, I always seek to challenge myself and overcome my own limits.</p>
+              </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 interest-item">
+              <i class="fa fa-music interest-icon"></i>
+              <h3 class="h5 mb-3"><span class="lang-es">Música</span><span class="lang-en">Music</span></h3>
+              <div class="lang-es text-muted">
+                <p>Tocar la batería y la guitarra son actividades que me apasionan. La música es mi escape creativo; dedico tiempo a practicar y explorar diferentes estilos musicales.</p>
+              </div>
+              <div class="lang-en text-muted">
+                <p>Playing drums and guitar are activities I am passionate about. Music is my creative escape; I dedicate time to practicing and exploring different musical styles.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
         <div class="my-auto">
-          <h2 class="mb-5">Proyectos</h2>
-          <ul class="fa-ul mb-0">
-            <h3>Análisis de datos de mi cuenta de Netlix</h3>
-              <a href="https://colab.research.google.com/drive/1w5czzqrZAzHQAnNfoLMgG89o553iJa3R?usp=sharing" target="_blank"><img src="img/netflix.jpg" alt="Netflix" width="300" height="200"></a>
-            <h3 class="project_title">Dashboard de Netflix </h3>
-              <iframe title="Analisis Netflix" width="700" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiNjdiZmM5YTEtODA2ZC00MTM5LWEwM2ItMzY4MTAzMGVjZGMxIiwidCI6IjVlYmQxZDcxLThjMzYtNGIxNy05MDAzLTMxNGUwNzI5YzYwNyIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
-            <h3 class="project_title">Callcenter Dashboard</h3>
-              <iframe title="callcenter_dashboard" width="700" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiNmYzOGRhZWMtNGI5NC00NjBkLTk0NGYtYWM4OGNiNzkyNTI2IiwidCI6IjVlYmQxZDcxLThjMzYtNGIxNy05MDAzLTMxNGUwNzI5YzYwNyIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>              
-            <h3 class="project_title">Company Dashboard</h3>
-              <iframe title="Empleados" width="700" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiMzljOTFiOWEtNjEyNy00OGI1LThkY2YtNTA5ZjNmZWU4ZGE5IiwidCI6IjVlYmQxZDcxLThjMzYtNGIxNy05MDAzLTMxNGUwNzI5YzYwNyIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
-            </ul>
+          <h2 class="mb-5"><span class="lang-es">Proyectos</span><span class="lang-en">Projects</span></h2>
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h4 class="card-title"><span class="lang-es">Análisis de datos de mi cuenta de Netflix</span><span class="lang-en">Data analysis of my Netflix account</span></h4>
+                  <a href="https://colab.research.google.com/drive/1w5czzqrZAzHQAnNfoLMgG89o553iJa3R?usp=sharing" target="_blank">
+                    <img class="img-fluid rounded" src="img/netflix.jpg" alt="Netflix">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h4 class="card-title">Dashboard de Netflix</h4>
+                  <div class="embed-responsive embed-responsive-4by3 rounded">
+                    <iframe class="embed-responsive-item" title="Analisis Netflix" src="https://app.powerbi.com/view?r=eyJrIjoiNjdiZmM5YTEtODA2ZC00MTM5LWEwM2ItMzY4MTAzMGVjZGMxIiwidCI6IjVlYmQxZDcxLThjMzYtNGIxNy05MDAzLTMxNGUwNzI5YzYwNyIsImMiOjR9" allowFullScreen="true"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h4 class="card-title">Callcenter Dashboard</h4>
+                  <div class="embed-responsive embed-responsive-4by3 rounded">
+                    <iframe class="embed-responsive-item" title="callcenter_dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiNmYzOGRhZWMtNGI5NC00NjBkLTk0NGYtYWM4OGNiNzkyNTI2IiwidCI6IjVlYmQxZDcxLThjMzYtNGIxNy05MDAzLTMxNGUwNzI5YzYwNyIsImMiOjR9" allowFullScreen="true"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h4 class="card-title">Company Dashboard</h4>
+                  <div class="embed-responsive embed-responsive-4by3 rounded">
+                    <iframe class="embed-responsive-item" title="Empleados" src="https://app.powerbi.com/view?r=eyJrIjoiMzljOTFiOWEtNjEyNy00OGI1LThkY2YtNTA5ZjNmZWU4ZGE5IiwidCI6IjVlYmQxZDcxLThjMzYtNGIxNy05MDAzLTMxNGUwNzI5YzYwNyIsImMiOjR9" allowFullScreen="true"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -289,6 +538,22 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
+
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+      }
+
+      function toggleLanguage() {
+        document.body.classList.toggle('lang-en-active');
+        var btn = document.getElementById('langBtn');
+        if (document.body.classList.contains('lang-en-active')) {
+          btn.innerText = "ES";
+        } else {
+          btn.innerText = "EN";
+        }
+      }
+    </script>
 
   </body>
 
