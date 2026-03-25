@@ -103,6 +103,21 @@
         color: #8f94fb;
       }
 
+      /* 6. Iconos Sociales (Corrección de color naranja y animación) */
+      .list-social-icons a {
+        color: #4e54c8 !important;
+        transition: transform 0.2s ease, color 0.2s ease;
+        display: inline-block;
+      }
+      .list-social-icons a:hover {
+        color: #8f94fb !important;
+        transform: scale(1.2); /* Crece un poco al pasar el mouse */
+      }
+      .list-social-icons a:focus, 
+      .list-social-icons a:active {
+        color: #3b3f99 !important; /* Color más oscuro al cliquear, sin rastro de naranja */
+      }
+
       /* --- MODO OSCURO --- */
       body.dark-mode {
         background-color: #121212;
@@ -122,6 +137,15 @@
       }
       body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
         color: #fff;
+      }
+      body.dark-mode .list-social-icons a {
+        color: #8f94fb !important;
+      }
+      body.dark-mode .list-social-icons a:hover {
+        color: #fff !important;
+      }
+      body.dark-mode .list-social-icons a:focus, body.dark-mode .list-social-icons a:active {
+        color: #4e54c8 !important;
       }
       body.dark-mode .subheading {
         color: #a0a0a0;
@@ -183,8 +207,13 @@
       /* Ajustes para móvil */
       @media (max-width: 992px) {
         h1 {
-          font-size: 3.5rem;
+          font-size: 3rem; /* Reducimos un poco más el tamaño para pantallas pequeñas */
           line-height: 1.2;
+          margin-bottom: 1rem !important; /* Añadimos espacio para que no choque con el correo */
+        }
+        .subheading {
+          font-size: 1rem;
+          word-break: break-all; /* Evita que correos largos rompan el diseño */
         }
         .toggle-container {
           top: auto;
